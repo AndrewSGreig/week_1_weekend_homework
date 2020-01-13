@@ -26,7 +26,7 @@ def pets_by_breed(pet_shop, type)
   count_array = []
   for pet in pet_shop[:pets]
     if pet[:breed] == type
-      count_array.push(pet[:breed])
+      count_array.push(pet)
     end
   end
   return count_array
@@ -34,7 +34,7 @@ end
 
 def find_pet_by_name(pet_shop, pet_name)
     for pet in pet_shop[:pets]
-      if pet[:name] == pet_name
+      if (pet[:name] == pet_name)
         return pet
       end
     end
@@ -42,9 +42,10 @@ def find_pet_by_name(pet_shop, pet_name)
 end
 
 def remove_pet_by_name(pet_shop, pet_name)
-  for pets in pet_shop[:pets]
-    if pets[:name]==pet_name
-      pets[:name] = nil
+  for pet in pet_shop[:pets]
+    if (pet[:name]==pet_name)
+      # pets[:name] = nil
+      pet_shop[:pets].delete(pet)
     end
   end
 end
